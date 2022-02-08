@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+/* body{        
+  padding-top: 60px;
+  padding-bottom: 40px;
+} */
+
+html {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+}
+.fixed-header,
+.fixed-footer {
+  width: 100%;
+  position: fixed;
+  background: pink;
+  padding: 10px 0;
+  color: #fff;
+  text-align: center;
+}
+
+.fixed-header {
+  top: 0;
+}
+
+.fixed-footer {
+  bottom: 0;
+}
+
+.content {
+  width: 90%;
+  position: relative;
+  background: orange;
+  margin-top: -550px;
+  position: fixed;
+  margin-left: 143px;
+}
+.sidebar {
+  background: blue;
+  width: 10%;
+  margin-top: 40px;
+  position: relative;
+}
+.content,
+.sidebar {
+  height: 550px;
+}
+
+.login-button {
+  width: 4rem;
+  height: 2rem;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.login-card {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: white;
+  height: 50%;
+}
+
+.email,
+.password {
+  margin: 20px;
+  width: 100%;
+  height: 2rem;
+}
