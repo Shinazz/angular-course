@@ -7,6 +7,7 @@ import { ContentComponent } from './pages/content/content.component';
 import { Content2Component } from './pages/content2/content2.component';
 import { ContainerComponent } from './pages/container/container.component';
 import { HomeRoutingModule } from './home.routing.module';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 @NgModule({
   declarations: [
     FooterComponent,
@@ -14,6 +15,7 @@ import { HomeRoutingModule } from './home.routing.module';
     Content2Component,
     ContentComponent,
     ContainerComponent,
+    SidebarComponent,
   ],
   imports: [CommonModule, HomeRoutingModule],
 })
