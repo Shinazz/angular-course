@@ -1,6 +1,6 @@
 <div class="sidebar-container">
   <div *ngFor="let item of items; let i = index">
-    <div *ngIf="userName === 'vipin' && i === 1" class="item">
+    <div [ngStyle]="{ color: i % 2 === 0 ? 'red' : 'blue' }" class="item">
       {{ item }} : index {{ i }}
     </div>
   </div>
