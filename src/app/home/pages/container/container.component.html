@@ -1,4 +1,12 @@
-<app-header title="my angular app" (signout)="exitted($event)"> </app-header>
+<app-header title="headerTitle">
+  <!-- content projection -->
+  <div>
+    <button (click)="exitted()" appSample>signout</button>
+  </div>
+  <div someOther>
+    <button (click)="exitted()">some other button</button>
+  </div>
+</app-header>
 
 <div class="main-container">
   <app-sidebar></app-sidebar>

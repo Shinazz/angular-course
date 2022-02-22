@@ -1,9 +1,8 @@
 <div class="fixed-header">
-  <div>
-    {{ title }}
-  </div>
+  <ng-content></ng-content>
+  <ng-content select="[someOther]"></ng-content>
 
-  <div>
-    <button (click)="exit()">signout</button>
+  <div #headerTitle>
+    {{ title }}
   </div>
 </div>

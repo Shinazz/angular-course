@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./container.component.scss'],
 })
 export class ContainerComponent implements OnInit {
+  headerTitle = 'my angular app';
+
   constructor() {}
 
-  ngOnInit(): void {}
-  exitted(event) {
-    console.log(event);
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.headerTitle = 'some thing else';
+    }, 3000);
+  }
+  exitted() {
+    console.log('exited');
   }
 }

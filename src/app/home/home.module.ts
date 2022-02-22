@@ -8,6 +8,8 @@ import { Content2Component } from './pages/content2/content2.component';
 import { ContainerComponent } from './pages/container/container.component';
 import { HomeRoutingModule } from './home.routing.module';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FormsModule } from '@angular/forms';
+import { SampleDirective } from '../directives/sample.directive';
 @NgModule({
   declarations: [
     FooterComponent,
@@ -16,7 +18,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     ContentComponent,
     ContainerComponent,
     SidebarComponent,
+    SampleDirective,
   ],
-  imports: [CommonModule, HomeRoutingModule],
+  imports: [CommonModule, HomeRoutingModule, FormsModule],
 })
 export class HomeModule {}
