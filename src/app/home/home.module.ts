@@ -9,7 +9,7 @@ import { ContainerComponent } from './pages/container/container.component';
 import { HomeRoutingModule } from './home.routing.module';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FormsModule } from '@angular/forms';
-import { SampleDirective } from '../directives/sample.directive';
+import { ExternalModule } from '../external/external/external.module';
 @NgModule({
   declarations: [
     FooterComponent,
@@ -18,8 +18,7 @@ import { SampleDirective } from '../directives/sample.directive';
     ContentComponent,
     ContainerComponent,
     SidebarComponent,
-    SampleDirective,
   ],
-  imports: [CommonModule, HomeRoutingModule, FormsModule],
+  imports: [CommonModule, HomeRoutingModule, FormsModule, ExternalModule],
 })
 export class HomeModule {}

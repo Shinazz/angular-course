@@ -20,16 +20,7 @@ import {
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent
-  implements
-    OnInit,
-    AfterViewInit,
-    OnChanges,
-    DoCheck,
-    AfterContentChecked,
-    AfterContentInit,
-    AfterViewChecked
-{
+export class HeaderComponent implements OnInit {
   @Input() title: string;
 
   @Output() signout: EventEmitter<string> = new EventEmitter();
@@ -37,32 +28,6 @@ export class HeaderComponent
   @ViewChild('headerTitle', { static: true }) someTitle: ElementRef;
 
   constructor() {}
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('on changes');
-  }
-
-  ngAfterContentInit(): void {
-    console.log('afetr view content init');
-  }
-
-  ngDoCheck(): void {
-    console.log('on do check');
-  }
-
-  ngAfterContentChecked(): void {
-    console.log('on after content checked');
-  }
-
-  ngAfterViewChecked(): void {
-    console.log('after view checked');
-  }
-
-  ngAfterViewInit(): void {
-    console.log('on viewinit');
-    // console.log(this.someTitle.nativeElement);
-    this.someTitle.nativeElement.style.color = 'red';
-  }
 
   ngOnInit(): void {
     console.log(this.someTitle);

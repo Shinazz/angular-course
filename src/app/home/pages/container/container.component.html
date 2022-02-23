@@ -1,9 +1,13 @@
-<app-header title="headerTitle">
+<app-header [title]="headerTitle">
   <!-- content projection -->
   <div>
-    <button (click)="exitted()" appSample>signout</button>
+    <button (click)="exitted()" [appSample]="'white'" class="mybtn">
+      signout
+    </button>
   </div>
-  <div someOther>
+  <!-- <ng-template [appStructure]=""></ng-template> -->
+
+  <div someOther *appStructure="show">
     <button (click)="exitted()">some other button</button>
   </div>
 </app-header>

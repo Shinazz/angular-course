@@ -7,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContainerComponent implements OnInit {
   headerTitle = 'my angular app';
+  show = false;
 
   constructor() {}
 
   ngOnInit(): void {
     setTimeout(() => {
       this.headerTitle = 'some thing else';
+      this.show = true;
     }, 3000);
   }
   exitted() {
