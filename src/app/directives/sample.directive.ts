@@ -1,5 +1,7 @@
+import { ChangeDetectionStrategy } from '@angular/compiler/src/compiler_facade_interface';
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Directive,
   ElementRef,
   HostBinding,
@@ -26,16 +28,21 @@ export class SampleDirective implements OnInit, AfterViewInit {
   @Input('appSample')
   color = 'blue';
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private cd: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.value = 'red';
     console.log(this.value);
     // this.el.nativeElement.style.color = 'red';
     this.renderer.setStyle(this.el.nativeElement, 'color', this.color);
   }
 
   ngAfterViewInit(): void {
+    this.value = 'red';
+    this.cd.detectChanges();
     console.log(this.value);
   }
 }

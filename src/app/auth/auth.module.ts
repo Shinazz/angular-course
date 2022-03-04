@@ -5,9 +5,16 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule } from '@angular/forms';
 import { SampleDirective } from '../directives/sample.directive';
 import { ExternalModule } from '../external/external/external.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [LoginComponent],
-  imports: [CommonModule, AuthRoutingModule, FormsModule, ExternalModule],
+  imports: [
+    CommonModule,
+    AuthRoutingModule,
+    FormsModule,
+    ExternalModule,
+    FlexLayoutModule,
+  ],
 })
 export class AuthModule {}

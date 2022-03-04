@@ -1,9 +1,41 @@
-<div class="container">
-  <div class="login-card">
-    <input class="email" placeholder="email" [(ngModel)]="email" />
-    <input class="password" placeholder="password" appSample />
-    <button class="login-button" mat-raised-button (click)="clicked()">
-      login
-    </button>
+<form (submit)="onSubmit()" #loginForm="ngForm">
+  <div class="container">
+    <mat-card fxFlex="80" fxFlex.gt-sm="50">
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-subtitle>Enter your credentials</mat-card-subtitle>
+      <mat-card-content fxLayout="row wrap" fxLayoutAlign="center start">
+        <mat-form-field fxFlex="60" f>
+          <mat-label>email</mat-label>
+          <input
+            class="email"
+            placeholder="email"
+            matInput
+            [(ngModel)]="email"
+            name="email"
+            ngModel
+            [required]="isRequired"
+          />
+          <mat-error>email is invalid</mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="60">
+          <mat-label>password</mat-label>
+          <input
+            class="password"
+            placeholder="password"
+            matInput
+            name="password"
+            ngModel
+          />
+        </mat-form-field>
+        <div fxFlex="60" fxLayoutAlign="center start">
+          <button fxFlex="30" class="login-button" mat-raised-button>
+            login
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- <div class="login-card"></div> -->
   </div>
-</div>
+</form>
