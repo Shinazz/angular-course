@@ -10,6 +10,7 @@ import { HomeRoutingModule } from './home.routing.module';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FormsModule } from '@angular/forms';
 import { ExternalModule } from '../external/external/external.module';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     FooterComponent,
@@ -19,6 +20,12 @@ import { ExternalModule } from '../external/external/external.module';
     ContainerComponent,
     SidebarComponent,
   ],
-  imports: [CommonModule, HomeRoutingModule, FormsModule, ExternalModule],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    FormsModule,
+    ExternalModule,
+    HttpClientModule,
+  ],
 })
 export class HomeModule {}

@@ -1,32 +1,29 @@
-<form (submit)="onSubmit()" #loginForm="ngForm">
+<form (submit)="onSubmit()" [formGroup]="loginForm">
   <div class="container">
     <mat-card fxFlex="80" fxFlex.gt-sm="50">
       <mat-card-title>Login</mat-card-title>
       <mat-card-subtitle>Enter your credentials</mat-card-subtitle>
       <mat-card-content fxLayout="row wrap" fxLayoutAlign="center start">
         <mat-form-field fxFlex="60" f>
-          <mat-label>email</mat-label>
+          <mat-label>newPassword</mat-label>
           <input
             class="email"
-            placeholder="email"
+            placeholder="newPassword"
             matInput
-            [(ngModel)]="email"
-            name="email"
-            ngModel
-            [required]="isRequired"
+            formControlName="newPassword"
           />
           <mat-error>email is invalid</mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex="60">
-          <mat-label>password</mat-label>
+          <mat-label>re enterpassword</mat-label>
           <input
             class="password"
             placeholder="password"
             matInput
-            name="password"
-            ngModel
+            formControlName="password"
           />
+          <mat-error>email is invalid</mat-error>
         </mat-form-field>
         <div fxFlex="60" fxLayoutAlign="center start">
           <button fxFlex="30" class="login-button" mat-raised-button>

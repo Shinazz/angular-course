@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/service/data.service';
 
@@ -10,11 +10,16 @@ import { DataService } from 'src/app/service/data.service';
 })
 export class LoginComponent implements OnInit, AfterViewInit {
   email: string = 'vipin';
-  @ViewChild('loginForm', { static: true }) loginForm: FormGroup;
+  loginForm: FormGroup;
   isRequired = true;
   constructor(private router: Router, private data: DataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      password: new FormControl(null, [Validators.required, Validators.email]),
+      newPassword: new FormControl(null, [Validators.required]),
+    });
+  }
 
   ngAfterViewInit(): void {}
 
