@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { observable } from 'rxjs';
 import { DataService } from 'src/app/service/data.service';
 import { environment } from 'src/environments/environment';
-
+import { ApiService } from 'src/app/service/api.service';
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -11,13 +11,21 @@ import { environment } from 'src/environments/environment';
 })
 export class ContentComponent implements OnInit {
   name = 'shinaz';
-  constructor(private data: DataService, private http: HttpClient) {}
+  constructor(
+    private data: DataService,
+    private http: HttpClient,
+    private api: ApiService
+  ) {}
 
-  ngOnInit(): void {
-    this.http.get(environment.endpoint + '/getUserDetails').subscribe((res) => {
-      console.log(res);
-    });
-    console.log('init');
+  async ngOnInit() {
+    const response = await this.api
+      .getAllTransactions({
+        custEmail: '5806546295@cred.ai',
+      })
+      .catch((err) => {
+        console.log('error');
+      });
+    console.log(response);
     this.name = this.data.userName;
   }
 }

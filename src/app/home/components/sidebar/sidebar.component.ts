@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from 'src/app/service/data.service';
 
 @Component({
@@ -7,11 +8,13 @@ import { DataService } from 'src/app/service/data.service';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  items = ['admin', 'cust details', 'cust actions', 'something else'];
+  items = ['admin', 'robo sauce', 'cust actions', 'something else'];
   userName: string;
-  constructor(private data: DataService) {}
+  constructor(private data: DataService, private router: Router) {}
 
   ngOnInit(): void {
     this.userName = this.data.userName;
   }
+
+  onclick(item) {}
 }

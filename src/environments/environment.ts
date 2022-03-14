@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  endpoint: 'https://6221f3be666291106a185975.mockapi.io/rcs/getUserDetails',
+  endPoints: {
+    auth: 'https://rj-admin-dashboard-dev.cred-intg.net/radb/',
+    baseUrl: 'https://rj-admin-dashboard-dev.cred-intg.net/radb/',
+  },
 };
 
 /*

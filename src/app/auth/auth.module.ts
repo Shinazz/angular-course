@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SampleDirective } from '../directives/sample.directive';
 import { ExternalModule } from '../external/external/external.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+console.log('auth  module');
 
 @NgModule({
   declarations: [LoginComponent],

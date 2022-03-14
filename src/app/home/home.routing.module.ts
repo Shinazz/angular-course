@@ -6,7 +6,7 @@ import { Content2Component } from './pages/content2/content2.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: ContainerComponent,
     children: [
       {

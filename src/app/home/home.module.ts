@@ -11,6 +11,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FormsModule } from '@angular/forms';
 import { ExternalModule } from '../external/external/external.module';
 import { HttpClientModule } from '@angular/common/http';
+
+console.log('home  module');
 @NgModule({
   declarations: [
     FooterComponent,
