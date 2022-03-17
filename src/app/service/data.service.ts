@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
+import { AsyncSubject, BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
+  public spinner = new BehaviorSubject<boolean>(false);
+
   private _accToken: string;
+
   public get accToken(): string {
     return this._accToken;
   }

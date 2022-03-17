@@ -11,6 +11,8 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class ContentComponent implements OnInit {
   name = 'shinaz';
+  selected = 'shinaz';
+
   constructor(
     private data: DataService,
     private http: HttpClient,

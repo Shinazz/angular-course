@@ -14,9 +14,12 @@ import { finalize, catchError } from 'rxjs/operators';
 })
 export class ApiInterceptor implements HttpInterceptor {
   constructor(private data: DataService) {}
+
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     console.log(req);
+
     let request = req;
+    this.data.spinner.next(true);
     if (!req.url.includes('authenticate')) {
       request = req.clone({
         headers: new HttpHeaders({
@@ -43,6 +46,10 @@ export class ApiInterceptor implements HttpInterceptor {
     //     ));
     // }
 
-    return next.handle(request);
+    return next.handle(request).pipe(
+      finalize(() => {
+        this.data.spinner.next(false);
+      })
+    );
   }
 }

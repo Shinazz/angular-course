@@ -45,11 +45,15 @@ export class LoginComponent implements OnInit, AfterViewInit {
       password: this.loginForm.controls['password'].value,
     };
 
-    const res: any = await this.api.login(request);
-    console.log(res);
-    this.data.accToken = res.response.tkn.accToken;
-    console.log(this.data.accToken);
-    localStorage.setItem('tkn', res.response.tkn.accToken);
-    if (res) this.router.navigate(['home', 'content']);
+    try {
+      const res: any = await this.api.login(request);
+      console.log(res);
+      this.data.accToken = res.response.tkn.accToken;
+      console.log(this.data.accToken);
+      localStorage.setItem('tkn', res.response.tkn.accToken);
+      if (res) this.router.navigate(['home', 'content']);
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
