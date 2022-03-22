@@ -10,15 +10,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiInterceptor } from '../app/api.interceptor';
 import { SpinnerComponent } from './home/components/spinner/spinner.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { ExternalModule } from './external/external/external.module';
 console.log('app  module');
 
 @NgModule({
-  declarations: [AppComponent, SpinnerComponent],
+  declarations: [AppComponent, SpinnerComponent, DialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
     HomeModule,
+    ExternalModule,
     BrowserAnimationsModule,
   ],
   providers: [

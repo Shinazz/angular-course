@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 import { DataService } from 'src/app/service/data.service';
+import { DialogService } from 'src/app/service/dialog.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
     private router: Router,
     private data: DataService,
     private http: HttpClient,
-    private api: ApiService
+    private api: ApiService,
+
+    private dialog: DialogService
   ) {}
 
   ngOnInit(): void {
@@ -53,6 +56,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
       localStorage.setItem('tkn', res.response.tkn.accToken);
       if (res) this.router.navigate(['home', 'content']);
     } catch (err) {
+      this.dialog.openAlertBox('Error', 'UserName invalid');
       console.log(err);
     }
   }

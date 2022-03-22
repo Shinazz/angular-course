@@ -1,0 +1,20 @@
+<h1 mat-dialog-title class="b-b">{{ data.title }}</h1>
+<div mat-dialog-content>
+  <ng-container>
+    <p style="text-align: center" *ngIf="data.msg">
+      {{ data.msg }}
+    </p>
+  </ng-container>
+</div>
+<div mat-dialog-actions class="b-t">
+  <button
+    mat-button
+    mat-raised-button
+    [mat-dialog-close]=""
+    cdkFocusInitial
+    style="margin: auto"
+    (click)="onOkClick()"
+  >
+    Ok
+  </button>
+</div>
