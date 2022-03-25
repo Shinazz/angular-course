@@ -1,7 +1,11 @@
 <div class="sidebar-container">
   <div *ngFor="let item of items; let i = index">
-    <div [ngStyle]="{ color: i % 2 === 0 ? 'red' : 'blue' }" class="item">
-      {{ item }}
+    <div
+      [ngStyle]="{ color: i % 2 === 0 ? 'red' : 'blue' }"
+      *ngIf="item.role.includes(userRole)"
+      class="item"
+    >
+      {{ item.state }}
     </div>
   </div>
 </div>

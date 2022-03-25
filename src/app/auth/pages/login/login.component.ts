@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
+    sessionStorage.clear();
+    localStorage.clear();
     this.loginForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required]),
@@ -52,12 +54,26 @@ export class LoginComponent implements OnInit, AfterViewInit {
       const res: any = await this.api.login(request);
       console.log(res);
       this.data.accToken = res.response.tkn.accToken;
-      console.log(this.data.accToken);
+
+      const something = this.parseJwt(this.data.accToken);
+
+      console.log(something['cognito:groups'][0]);
+
       localStorage.setItem('tkn', res.response.tkn.accToken);
+      localStorage.setItem('role', something['cognito:groups'][0]);
+
       if (res) this.router.navigate(['home', 'content']);
     } catch (err) {
       this.dialog.openAlertBox('Error', 'UserName invalid');
       console.log(err);
     }
   }
+
+  parseJwt = (token) => {
+    try {
+      return JSON.parse(atob(token.split('.')[1]));
+    } catch (e) {
+      return null;
+    }
+  };
 }

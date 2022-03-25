@@ -8,7 +8,7 @@ export class DataService {
   public spinner = new BehaviorSubject<boolean>(false);
 
   private _accToken: string;
-
+  private _role: string;
   public get accToken(): string {
     return this._accToken;
   }
